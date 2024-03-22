@@ -8,6 +8,7 @@ export interface PopularComic {
 }
 
 export interface RecommendedComic {
+    slice:any
     data: any
     endpoint: any
     title: string
