@@ -9,7 +9,7 @@ export const getPopularComic = async () => {
     };
 
     try {
-        const popularResponse = await fetch(`${KOMIKU_BASE_URL}/popular/page/1?limit=20`, options);
+        const popularResponse = await fetch(`${KOMIKU_BASE_URL}/popular/page/1`, options);
         const popularData: PopularComic = await popularResponse.json();
         console.log('Popular Comics:', popularData);
         return popularData;
@@ -27,7 +27,7 @@ export const getRecommendedComic = async () => {
     };
 
     try {
-        const recommendResponse = await fetch(`${KOMIKU_BASE_URL}/recommended/page/1?limit=20`, options);
+        const recommendResponse = await fetch(`${KOMIKU_BASE_URL}/recommended/page/1`, options);
         const recommendData: RecommendedComic = await recommendResponse.json();
         console.log('Recommended Comics:', recommendData);
         return recommendData;

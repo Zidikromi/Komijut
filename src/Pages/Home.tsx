@@ -52,7 +52,7 @@ const Home = () => {
             <SearchInput />
             {loading && (
                 <div className="flex justify-center items-center mt-10">
-                  <span className="loading loading-ring loading-lg"></span>
+             <span className="loading loading-dots loading-lg"></span>
                 </div>
             )}
             {!loading && (

@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { RecommendedComic } from "../lib/types";
 import { Link } from "react-router-dom";
 import { FaChevronCircleRight } from "react-icons/fa";
@@ -11,9 +10,8 @@ import 'swiper/css/free-mode';
 import 'swiper/css/pagination';
 
 // import './styleswiper.css';
-
-// import required modules
 import { FreeMode, Pagination } from 'swiper/modules';
+// import required modules
 
 interface RecomMangaProps {
     recommend: RecommendedComic[]
@@ -30,9 +28,9 @@ const RecomManga = ({ recommend }: RecomMangaProps) => {
                 pagination={{
                     clickable: true,
                 }}
+                modules={[FreeMode]}
                 className="mySwiper"
                 breakpoints={{
-                    // Konfigurasi untuk layar dengan lebar lebih kecil dari 768px (misalnya, mobile)
                     640: {
                         slidesPerView: 2,
                         spaceBetween: 20,
@@ -41,7 +39,6 @@ const RecomManga = ({ recommend }: RecomMangaProps) => {
                         slidesPerView: 3,
                         spaceBetween: 30,
                     },
-                    // Tambahkan konfigurasi tambahan di sini sesuai kebutuhan
                 }}
             >
                 {recommend.map((recom, i) => (

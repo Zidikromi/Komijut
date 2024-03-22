@@ -63,7 +63,7 @@ const Infodetail = () => {
             </div>
           </div>
         ) : (
-          <p className="text-4xl"><span className="loading loading-ring loading-lg"></span></p>
+          <p className="text-4xl"><span className="loading loading-dots loading-lg"></span></p>
         )}
       </div>
     </>

@@ -1,6 +1,4 @@
-import { useEffect, useState } from "react";
 import { PopularComic } from "../lib/types";
-import { getPopularComic } from "../lib/api";
 import { Link } from "react-router-dom";
 import { FaChevronCircleRight } from "react-icons/fa";
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -11,9 +9,8 @@ import 'swiper/css/free-mode';
 import 'swiper/css/pagination';
 
 // import './styleswiper.css';
-
-// import required modules
 import { FreeMode, Pagination } from 'swiper/modules';
+// import required modules
 
 interface PopularMangaProps {
     popular: PopularComic[]
@@ -33,9 +30,9 @@ const CardManga = ({ popular }: PopularMangaProps) => {
                 pagination={{
                     clickable: true,
                 }}
+                modules={[FreeMode]}
                 className="mySwiper"
                 breakpoints={{
-                    // Konfigurasi untuk layar dengan lebar lebih kecil dari 768px (misalnya, mobile)
                     640: {
                         slidesPerView: 2,
                         spaceBetween: 20,
@@ -44,13 +41,12 @@ const CardManga = ({ popular }: PopularMangaProps) => {
                         slidesPerView: 3,
                         spaceBetween: 30,
                     },
-                    // Tambahkan konfigurasi tambahan di sini sesuai kebutuhan
                 }}
             >
                 {popular.map((comic, index) => (
                     <SwiperSlide key={index} className="pb-10" style={{ height: '520px' }}>
-                        <Link to={comic.endpoint} className="group block rounded-lg overflow-hidden shadow-md transition duration-300 ease-in-out transform hover:scale-105" style={{ height: '100%' }}>
-                            <img src={comic.image} alt="Manga Cover" className="w-full h-64 object-cover" />
+                        <Link to={comic.endpoint.startsWith('/') ? comic.endpoint.substring(1) : comic.endpoint} className="group block rounded-lg overflow-hidden shadow-md transition duration-300 ease-in-out transform hover:scale-105" style={{ height: '100%' }}>
+                            <img src={comic.image} alt="Manga Cover" className="w-full h-60 object-cover" />
                             <div className="p-4">
                                 <h2 className="text-xl font-semibold mb-2 group-hover:text-red-600 text-start">{comic.title}</h2>
                                 <p className="text-gray-600 text-start">{comic.desc}</p>
@@ -63,8 +59,8 @@ const CardManga = ({ popular }: PopularMangaProps) => {
                         </Link>
                     </SwiperSlide>
                 ))}
-            </Swiper>
-        </div>
+        </Swiper>
+        </div >
     );
 }
 
