@@ -1,15 +1,36 @@
+import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './Pages/Home';
 import Infodetail from './Pages/Infodetail';
+import Chapter from './Pages/chapter';
 
-const App = () => {
+const App: React.FC = () => {
+  // State untuk menyimpan status tema gelap/terang
+  const [isDarkMode, setIsDarkMode] = useState<boolean>(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
+
+  // Menggunakan useEffect untuk mendeteksi perubahan tema saat komponen dimuat
+  useEffect(() => {
+    const handler = (e: MediaQueryListEvent) => setIsDarkMode(e.matches);
+    const mql = window.matchMedia('(prefers-color-scheme: dark)');
+    mql.addEventListener('change', handler);
+    return () => mql.removeEventListener('change', handler);
+  }, []);
+
+  // Menyesuaikan warna latar belakang berdasarkan tema
+  const bgColor = isDarkMode ? '#333' : '#fff';
+  const textColor = isDarkMode ? '#fff' : '#000'; // Warna teks sesuai tema
+
+
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/manga/:id" element={<Infodetail />} />
-      </Routes>
-    </Router>
+    <div style={{ backgroundColor: bgColor, minHeight: '100vh', color: textColor }}>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/manga/:id" element={<Infodetail />} />
+          <Route path="/ch/:id" element={<Chapter />} />
+        </Routes>
+      </Router>
+    </div>
   );
 };
 

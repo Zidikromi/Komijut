@@ -4,8 +4,6 @@ import { InfoComic } from '../lib/types';
 import { getInfoComic } from '../lib/api';
 import Navbar from '../components/Navbar';
 
-
-
 const Infodetail = () => {
   const { id } = useParams<{ id: string }>();
   const [info, setInfo] = useState<InfoComic | null>(null);
@@ -30,11 +28,11 @@ const Infodetail = () => {
         {info ? (
           <div className='flex flex-col'>
             <div className="flex flex-col md:flex-row gap-2 md:h-[400px] md:max-w-4xl">
-              <div className="bg-white rounded-lg inline-block md:h-full max-w-md">
+              <div className="rounded-lg inline-block md:h-full max-w-md">
                 <img src={info.thumbnail} alt="Comic" className="w-full h-full rounded-xl" />
               </div>
-              <div className="bg-white shadow-lg rounded-lg pl-6 md:w-[65%] ">
-                <h2 className="text-2xl font-semibold mb-4">{info.title}</h2>
+              <div className="shadow-lg rounded-lg pl-6 md:w-[75%] ">
+                <h2 className="text-2xl font-semibold mt-4 mb-2">{info.title}</h2>
                 <p className="text-lg mb-2"><span className="font-semibold">Author:</span> {info.author}</p>
                 <p className="text-lg mb-2"><span className="font-semibold">Rating:</span> {info.rating}</p>
                 <p className="text-lg mb-2"><span className="font-semibold">Status:</span> {info.status}</p>
@@ -46,20 +44,18 @@ const Infodetail = () => {
                 </div>
               </div>
             </div>
-            <div className='bg-white shadow-2xl rounded-lg p-6 max-w-4xl mt-5'>
-              <p>Chapter List</p>
-              <p>Chapter List</p>
-              <p>Chapter List</p>
-              <p>Chapter List</p>
-              <p>Chapter List</p>
-              <p>Chapter List</p>
-              <p>Chapter List</p>
-              <p>Chapter List</p>
-              <p>Chapter List</p>
-              <p>Chapter List</p>
-              <p>Chapter List</p>
-              <p>Chapter List</p>
-              <p>Chapter List</p>
+            <div className='shadow-2xl rounded-lg p-6 max-w-4xl mt-5'>
+              <h3 className="text-2xl font-semibold mb-4">Chapter List</h3>
+              <ul className="divide-y divide-gray-200">
+                {info.chapter_list.map((chapter, index) => (
+                  <li key={index} className="py-4 flex justify-between items-center">
+                    <div className="flex flex-col">
+                      <span className="text-lg font-semibold">{chapter.name}</span>
+                    </div>
+                    <a href={chapter.endpoint} className="text-red-600 hover:text-red-900">Read</a>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         ) : (

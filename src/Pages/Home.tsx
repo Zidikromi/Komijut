@@ -12,40 +12,39 @@ const Home = () => {
     const [popular, setPopular] = useState<PopularComic[]>([]);
     const [loading, setLoading] = useState<boolean>(true); // State untuk loading
 
-    useEffect(() => {
-        const fetchRecommendedData = async () => {
-            try {
-                const recommang = await getRecommendedComic();
+    const fetchRecommendedData = async () => {
+        try {
+            const recommang = await getRecommendedComic();
 
-                if (recommang && recommang.data) {
-                    setRecommend(recommang.data);
-                }
-            } catch (error) {
-                console.error('Error fetching recommended data:', error);
+            if (recommang && recommang.data) {
+                setRecommend(recommang.data);
             }
-        };
+        } catch (error) {
+            console.error('Error fetching recommended data:', error);
+        }
+    };
 
-        fetchRecommendedData();
-    }, []);
+    const fetchPopularData = async () => {
+        try {
+            const popularComics = await getPopularComic();
 
-    useEffect(() => {
-        const fetchPopularData = async () => {
-            try {
-                const popularComics = await getPopularComic();
-
-                if (popularComics && popularComics.data) {
-                    setPopular(popularComics.data);
-                }
-            } catch (error) {
-                console.error('Error fetching popular data:', error);
-            } finally {
-                setLoading(false);
+            if (popularComics && popularComics.data) {
+                setPopular(popularComics.data);
             }
-        };
-
-        fetchPopularData();
-    }, []);
-
+        } catch (error) {
+            console.error('Error fetching popular data:', error);
+        }
+    };
+    
+    const getData = async () => {
+        await fetchRecommendedData();
+        await fetchPopularData();
+        setLoading(false);
+    }
+    
+    useEffect(() => {        
+        getData()
+},[]);
     return (
         <>
             <Navbar />

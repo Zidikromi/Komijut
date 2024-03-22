@@ -10,7 +10,7 @@ import 'swiper/css/free-mode';
 import 'swiper/css/pagination';
 
 // import './styleswiper.css';
-import { FreeMode, Pagination } from 'swiper/modules';
+import { FreeMode } from 'swiper/modules';
 // import required modules
 
 interface RecomMangaProps {
@@ -47,11 +47,11 @@ const RecomManga = ({ recommend }: RecomMangaProps) => {
                             <img src={recom.image} alt="Manga Cover" className="w-full h-60 object-cover" />
                             <div className="p-4">
                                 <h2 className="text-xl font-semibold mb-2 group-hover:text-red-600 text-start">{recom.title}</h2>
-                                <p className="text-gray-600 text-start">{recom.desc}</p>
-                                <p className="text-gray-600 font-bold mt-1 text-start">{recom.type}</p>
+                                <p className="text-start opacity-55">{recom.desc}</p>
+                                <p className="font-bold mt-1 text-start">{recom.type}</p>
                                 <div className="flex items-center gap-2 mt-2">
-                                    <span className="text-sm font-medium text-gray-500 group-hover:text-red-600">Read More</span>
-                                    <FaChevronCircleRight className="text-gray-500 group-hover:text-red-600" />
+                                    <span className="text-sm font-medium opacity-55  group-hover:text-red-600">Read More</span>
+                                    <FaChevronCircleRight className="opacity-55 group-hover:text-red-600" />
                                 </div>
                             </div>
                         </Link>
