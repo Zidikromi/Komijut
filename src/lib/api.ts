@@ -9,7 +9,7 @@ export const getPopularComic = async () => {
     };
 
     try {
-        const popularResponse = await fetch(`${KOMIKU_BASE_URL}/popular/page/1`, options);
+        const popularResponse = await fetch(`${KOMIKU_BASE_URL}/popular/page/1?limit=20`, options);
         const popularData: PopularComic = await popularResponse.json();
         console.log('Popular Comics:', popularData);
         return popularData;
@@ -27,7 +27,7 @@ export const getRecommendedComic = async () => {
     };
 
     try {
-        const recommendResponse = await fetch(`${KOMIKU_BASE_URL}/recommended/page/1?limit=10`, options);
+        const recommendResponse = await fetch(`${KOMIKU_BASE_URL}/recommended/page/1?limit=20`, options);
         const recommendData: RecommendedComic = await recommendResponse.json();
         console.log('Recommended Comics:', recommendData);
         return recommendData;
@@ -63,7 +63,7 @@ export const getInfoComic = async (endpoint: string) => {
     try {
         const response = await fetch(`${KOMIKU_BASE_URL}/info${endpoint}`, options);
         const data: InfoComic = await response.json();
-        // console.log(data);
+        console.log(data);
         return data;
     } catch (error) {
         console.error('Error fetching comic info:', error);
