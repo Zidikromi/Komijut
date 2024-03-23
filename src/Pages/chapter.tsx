@@ -120,9 +120,9 @@ function Chapter() {
                         <div className='bg-white w-14 h-14 fixed bg-opacity-70 rounded-full flex justify-center items-center mt-4 ml-4 cursor-pointer text-black hover:text-red-800' onClick={() => window.history.back()}>
                             <IoMdArrowBack size={20} />
                         </div>
-                        <div className='bg-black bg-opacity-70 w-full fixed h-14 max-w-screen-sm bottom-0 flex justify-between items-center px-10'>
+                        <div className='bg-black bg-opacity-70 w-full  h-14 max-w-screen-sm bottom-0 flex justify-between items-center px-10'>
                             <div><MdNavigateBefore size={25} onClick={GoToPrevChapter} className='cursor-pointer' /></div>
-                            <div className='font-semibold'>{chapter.title}</div>
+                            <div className='font-semibold text-xs md:text-sm'>{chapter.title}</div>
                             <div><MdNavigateNext size={25} onClick={GoToNextChapter} className='cursor-pointer'/></div>
                         </div>
                     </div>
