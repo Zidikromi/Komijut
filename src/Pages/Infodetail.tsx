@@ -1,17 +1,17 @@
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { InfoComic } from '../lib/types';
 import { getInfoComic } from '../lib/api';
 import Navbar from '../components/Navbar';
 
 const Infodetail = () => {
-  const { id } = useParams<{ id: string }>();
+  const { mangaid } = useParams<{ mangaid: string }>();
   const [info, setInfo] = useState<InfoComic | null>(null);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const infoComic = await getInfoComic(`/manga/${id}`);
+        const infoComic = await getInfoComic(`/manga/${mangaid}`);
         setInfo(infoComic.data);
       } catch (error) {
         console.error('Error fetching comic info:', error);
@@ -19,7 +19,7 @@ const Infodetail = () => {
     };
 
     fetchData();
-  }, [id]);
+  }, [mangaid]);
 
   return (
     <>
@@ -52,7 +52,7 @@ const Infodetail = () => {
                     <div className="flex flex-col">
                       <span className="text-lg font-semibold">{chapter.name}</span>
                     </div>
-                    <a href={chapter.endpoint} className="text-red-600 hover:text-red-900">Read</a>
+                    <Link to={`/manga/${mangaid}/chapter${chapter.endpoint}`} className="text-red-600 hover:text-red-900">Read</Link>
                   </li>
                 ))}
               </ul>

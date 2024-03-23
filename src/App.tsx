@@ -26,8 +26,9 @@ const App: React.FC = () => {
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/manga/:id" element={<Infodetail />} />
-          <Route path="/ch/:id" element={<Chapter />} />
+          <Route path="/manga/:mangaid" element={<Infodetail />} />
+          {/* <Route path="/ch/:chapterid" element={<Chapter />} /> */}
+          <Route path="/manga/:mangaid/chapter/ch/:chapterid" element={<Chapter/>}/>
         </Routes>
       </Router>
     </div>
