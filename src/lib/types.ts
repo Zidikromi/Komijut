@@ -18,6 +18,9 @@ export interface RecommendedComic {
 }
 
 export interface Chapter {
+    data: any;
+    title: string;
+    image: [];
     id: any
     endpoint: string;
     name: string;
@@ -25,10 +28,12 @@ export interface Chapter {
 
 
 export interface ChapterDetail {
-    data:any
+    endpoint: string;
+    data: any;
     title: string;
     image: [];
 }
+
 
 export interface InfoComic {
     data:any

@@ -9,9 +9,10 @@ function Chapter() {
     const { mangaid, chapterid } = useParams<{ mangaid: string, chapterid: string }>();
 
     const [chapter, setChapter] = useState<ChapterDetail | null>(null);
-    const [,setInfo] = useState<InfoComic | null>(null);
+    const [info, setInfo] = useState<InfoComic | null>(null);
+    const [nextChapt, setNextChapt] = useState<ChapterDetail | null>(null);
+    const [prevChapt, setPrevChapt] = useState<ChapterDetail | null>(null);
 
-    console.log(mangaid)
     useEffect(() => {
         const fetchChapter = async () => {
             try {
@@ -38,7 +39,67 @@ function Chapter() {
         fetchInfoComic();
     }, [mangaid]);
 
+    useEffect(() => {
+    
+        if (!chapterid || !info || !info.chapter_list) {
+            return; 
+        }
+    
+  
+        const chapterNumber = parseInt(chapterid.match(/\d+/)?.[0] || '0');
+    
+  
+        const idx = info.chapter_list.findIndex(ch => {
+            const chapterNumberInEndpoint = parseInt(ch.endpoint.match(/\d+/)?.[0] || '0');
+            return chapterNumberInEndpoint === chapterNumber;
+        });
+    
+        const nextChapterIndex = idx !== -1 && idx - 1 >= 0 ? idx - 1 : -1;
+        const nextChapter = nextChapterIndex !== -1 ? info.chapter_list[nextChapterIndex] : null; 
+        setNextChapt(nextChapter); 
+    
+        // console.log('idx:', idx);
+        console.log('nextChapt:', nextChapter);
+    }, [info, chapterid]);
 
+    useEffect(() => {
+        if (!chapterid || !info || !info.chapter_list) {
+            return; 
+        }
+    
+        const chapterNumber = parseInt(chapterid.match(/\d+/)?.[0] || '0');
+    
+        const idx = info.chapter_list.findIndex(ch => {
+            const chapterNumberInEndpoint = parseInt(ch.endpoint.match(/\d+/)?.[0] || '0');
+            return chapterNumberInEndpoint === chapterNumber;
+        });
+    
+        const previousChapterIndex = idx !== -1 && idx + 1 < info.chapter_list.length ? idx + 1 : -1;
+        const previousChapter = previousChapterIndex !== -1 ? info.chapter_list[previousChapterIndex] : null; 
+        setPrevChapt(previousChapter); 
+    
+        // console.log('idx:', idx);
+        console.log('previousChapt:', previousChapter);
+    }, [info, chapterid]);
+    
+
+    const GoToNextChapter = () => {
+        if (nextChapt && nextChapt.endpoint) {
+            window.location.href = `/manga/${mangaid}/chapter${nextChapt.endpoint}`
+        } else {
+            console.log('Next chapter is not available');
+            
+        }
+    }
+
+    const GoToPrevChapter = () => {
+        if (prevChapt && prevChapt.endpoint) {
+            window.location.href = `/manga/${mangaid}/chapter${prevChapt.endpoint}`
+        } else {
+            console.log('Next chapter is not available');
+            
+        }
+    }
 
     return (
         <>
@@ -60,10 +121,9 @@ function Chapter() {
                             <IoMdArrowBack size={20} />
                         </div>
                         <div className='bg-black bg-opacity-70 w-full fixed h-14 max-w-screen-sm bottom-0 flex justify-between items-center px-10'>
-                            <div><MdNavigateBefore size={25}/></div>
+                            <div><MdNavigateBefore size={25} onClick={GoToPrevChapter} className='cursor-pointer' /></div>
                             <div className='font-semibold'>{chapter.title}</div>
-                            <div><MdNavigateNext  size={25}/></div>
-
+                            <div><MdNavigateNext size={25} onClick={GoToNextChapter} className='cursor-pointer'/></div>
                         </div>
                     </div>
                 )}
