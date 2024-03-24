@@ -27,6 +27,8 @@ const App: React.FC = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/manga/:mangaid" element={<Infodetail />} />
+          <Route path="/manhwa/:mangaid" element={<Infodetail />} />
+
           {/* <Route path="/ch/:chapterid" element={<Chapter />} /> */}
           <Route path="/manga/:mangaid/chapter/ch/:chapterid" element={<Chapter/>}/>
         </Routes>

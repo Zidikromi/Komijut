@@ -1,5 +1,5 @@
 import { KOMIKU_BASE_URL } from './constant';
-import { ChapterDetail, InfoComic, PopularComic, RecommendedComic } from './types';
+import { ChapterDetail, InfoComic, PopularComic, RecommendedComic, SearchGet } from './types';
 
 export const getPopularComic = async () => {
     const options: RequestInit = {
@@ -87,6 +87,25 @@ export const getChapter = async (endpoint: string) => {
         return data;
     } catch (error) {
         console.error('Error fetching comic info:', error);
+        throw error;
+    }
+};
+
+export const GetSearch = async (q:string) => {
+    const options: RequestInit = {
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        mode: 'cors',
+    };
+
+    try {
+        const response = await fetch(`${KOMIKU_BASE_URL}/search/${q}`, options);
+        const data: SearchGet = await response.json();
+        console.log('search GEt',data);
+        return data;
+    } catch (error) {
+        console.error('Error fetching Search:', error);
         throw error;
     }
 };

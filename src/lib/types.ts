@@ -17,6 +17,16 @@ export interface RecommendedComic {
     type: string
 }
 
+export interface SearchGet {
+    slice:any
+    data: any
+    endpoint: any
+    title: string
+    desc: string
+    image: string
+    type: string
+}
+
 export interface Chapter {
     data: any;
     title: string;
