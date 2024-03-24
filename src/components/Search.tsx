@@ -41,15 +41,19 @@ const SearchInput = () => {
           onChange={handleInputChange} // Panggil fungsi saat input berubah
           className="border border-gray-300 rounded-2xl py-2 px-4 focus:outline-none focus:border-red-800 h-10 w-56"
         />
-        <ul className="menu menu-sm bg-base-200 w-56 rounded-box absolute z-10">
-          {/* Tampilkan hasil pencarian di sini */}
-          {searchResults.map((result) => (
-            <Link to={result.endpoint.startsWith('/') ? result.endpoint.substring(1) : result.endpoint} className="flex gap-2 mt-1">
-              <img src={result.image} alt="" className=" w-full h-full max-w-16 max-h-10 " />
-              <p className="text-xs">{result.title}</p>
-            </Link>
-          ))}
-        </ul>
+        {searchResults.length > 0 && ( // Tambahkan kondisi disini
+          <ul className="menu menu-sm bg-base-200 w-56 rounded-box absolute z-10">
+            {searchResults.map((result, index) => (
+              <React.Fragment key={index}>
+                <Link to={result.endpoint.startsWith('/') ? result.endpoint.substring(1) : result.endpoint} className="flex gap-2 mt-1">
+                  <img src={result.image} alt="" className="w-16 h-16 object-cover" />
+                  <div className="text-xs flex items-center">{result.title}</div>
+                </Link>
+                {index !== searchResults.length - 1 && <hr className="my-1" />}
+              </React.Fragment>
+            ))}
+          </ul>
+        )}
       </div>
     </div>
   );

@@ -5,6 +5,7 @@ import SearchInput from '../components/Search';
 import RecomManga from '../components/RecomManga';
 import { PopularComic, RecommendedComic } from '../lib/types';
 import { getPopularComic, getRecommendedComic, } from '../lib/api';
+import Cardtop from '../components/Cardtop';
 
 
 const Home = () => {
@@ -35,28 +36,31 @@ const Home = () => {
             console.error('Error fetching popular data:', error);
         }
     };
-    
+
     const getData = async () => {
         await fetchRecommendedData();
         await fetchPopularData();
         setLoading(false);
     }
-    
-    useEffect(() => {        
+
+    useEffect(() => {
         getData()
-},[]);
+    }, []);
     return (
         <>
             <Navbar />
             <SearchInput />
             {loading && (
                 <div className="flex justify-center items-center mt-10">
-             <span className="loading loading-dots loading-lg"></span>
+                    <span className="loading loading-dots loading-lg"></span>
                 </div>
             )}
             {!loading && (
                 <>
+
                     <CardManga popular={popular} />
+                    <Cardtop />
+
                     <RecomManga recommend={recommend} />
                 </>
             )}
