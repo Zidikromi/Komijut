@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
 import Navbar from '../components/Navbar';
 import CardManga from '../components/CardManga';
-import SearchInput from '../components/Search';
+
 import RecomManga from '../components/RecomManga';
 import { PopularComic, RecommendedComic } from '../lib/types';
 import { getPopularComic, getRecommendedComic, } from '../lib/api';
-import Cardtop from '../components/Cardtop';
+
 
 
 const Home = () => {
@@ -49,7 +49,7 @@ const Home = () => {
     return (
         <>
             <Navbar />
-            <SearchInput />
+            {/* <SearchInput /> */}
             {loading && (
                 <div className="flex justify-center items-center mt-10">
                     <span className="loading loading-dots loading-lg"></span>
@@ -59,7 +59,7 @@ const Home = () => {
                 <>
 
                     <CardManga popular={popular} />
-                    <Cardtop />
+                    {/* <Cardtop /> */}
 
                     <RecomManga recommend={recommend} />
                 </>

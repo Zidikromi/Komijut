@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom"
+import SearchInput from "./Search"
 
 const Navbar = () => {
     return (
@@ -8,6 +9,7 @@ const Navbar = () => {
                     <img className='w-full' src="https://play-lh.googleusercontent.com/4QdiqfgqEoIdHAWmMe6m9VKVhfw94E8zUluQ-KmtAwEnUijT2Tbb6lApzyqbQlAKH88" alt="" />
                     <h2 className='text-blue-800 font-bold items-center flex'>KOMIJUT</h2>
                 </Link>
+                <SearchInput/>
             </div>
         </>
     )

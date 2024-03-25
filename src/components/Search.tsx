@@ -32,7 +32,7 @@ const SearchInput = () => {
   };
 
   return (
-    <div className="container mx-auto mt-8 px-4 flex justify-end">
+    <div className="container ml-auto px-6 mt-2 flex justify-end">
       <div>
         <input
           type="text"
