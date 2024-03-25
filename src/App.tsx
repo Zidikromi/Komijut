@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './Pages/Home';
 import Infodetail from './Pages/Infodetail';
 import Chapter from './Pages/chapter';
+import Home2 from './Pages/Home2';
 
 const App: React.FC = () => {
   // State untuk menyimpan status tema gelap/terang
@@ -17,7 +18,7 @@ const App: React.FC = () => {
   }, []);
 
   // Menyesuaikan warna latar belakang berdasarkan tema
-  const bgColor = isDarkMode ? '#333' : '#fff';
+  const bgColor = isDarkMode ? '#333' : '#FFF8F0';
   const textColor = isDarkMode ? '#fff' : '#000'; // Warna teks sesuai tema
 
 
@@ -25,11 +26,13 @@ const App: React.FC = () => {
     <div style={{ backgroundColor: bgColor, minHeight: '100vh', color: textColor }}>
       <Router>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home2 />} />
+          <Route path="/home" element={<Home />} />
+
           <Route path="/manga/:mangaid" element={<Infodetail />} />
           <Route path="/manhwa/:mangaid" element={<Infodetail />} />
           {/* <Route path="/ch/:chapterid" element={<Chapter />} /> */}
-          <Route path="/manga/:mangaid/chapter/ch/:chapterid" element={<Chapter/>}/>
+          <Route path="/manga/:mangaid/chapter/ch/:chapterid" element={<Chapter />} />
         </Routes>
       </Router>
     </div>

@@ -1,6 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-#root{
-    background-color: white;
+
+#root {
+    background-color: white ;
 }
+
+@font-face {
+    font-family: 'NamaFont';
+    src: url('../src/font/Utendo-Regular.ttf') format('truetype');
+    /* Ganti 'NamaFont' dengan nama font yang Anda inginkan */
+    /* Ganti '../font/NamaFont-Regular.ttf' dengan path yang sesuai ke file font */
+  }

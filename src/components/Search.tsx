@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { GetSearch } from "../lib/api";
 import { SearchGet } from "../lib/types";
 import { Link } from "react-router-dom";
+import { GoSearch } from "react-icons/go";
 
 const SearchInput = () => {
   const [searchInput, setSearchInput] = useState(""); // State untuk menyimpan nilai input pencarian
@@ -36,24 +37,31 @@ const SearchInput = () => {
       <div>
         <input
           type="text"
-          placeholder="Search"
-          value={searchInput} // Nilai input terikat ke state searchInput
-          onChange={handleInputChange} // Panggil fungsi saat input berubah
-          className="border border-gray-300 rounded-2xl py-2 px-4 focus:outline-none focus:border-red-800 h-10 w-56"
+          placeholder="SEARCH"
+          value={searchInput}
+          onChange={handleInputChange}
+          className="border bg-[#F5EEE7] border-white rounded-2xl py-2 px-4 flex text-[#D6A76F] focus:outline-none focus:border-white h-[31.41px] w-[179.69px] text-sm placeholder-[#D6A76F] focus:placeholder:hidden placeholder:text-right  placeholder:text-xs placeholder:font-bold"
+          style={{ fontFamily: 'NamaFont, sans-serif' }}
         />
         {searchResults.length > 0 && ( // Tambahkan kondisi disini
-          <ul className="menu menu-sm bg-base-200 w-56 rounded-box absolute z-10">
+          <ul className="menu menu-sm bg-[#FFEBD8] w-[179.69px] rounded-box border-white mt-0.5 absolute z-10 border">
             {searchResults.map((result, index) => (
               <React.Fragment key={index}>
-                <Link to={result.endpoint.startsWith('/') ? result.endpoint.substring(1) : result.endpoint} className="flex gap-2 mt-1">
-                  <img src={result.image} alt="" className="w-16 h-16 object-cover" />
-                  <div className="text-xs flex items-center">{result.title}</div>
+                <Link to={result.endpoint.startsWith('/') ? result.endpoint.substring(1) : result.endpoint} className="flex gap-2 mt-1 bg-white bg-opacity-20 border-white border rounded-box max-h-[107px]">
+                  <img src={result.image} alt="" className="w-[68.3px] h-[107px] object-cover rounded-lg" />
+                  <div className="flex flex-col justify-center">
+                    <div className="text-[13px] font-semibold flex items-center text-[#8C6D48]" style={{ fontFamily: 'NamaFont, sans-serif' }}>{result.title}</div>
+                    <div className="text-[10px] font-medium flex items-center text-[#8C6D48]" style={{ fontFamily: 'NamaFont, sans-serif' }}>{result.type}</div>
+                  </div>
                 </Link>
                 {index !== searchResults.length - 1 && <hr className="my-1" />}
               </React.Fragment>
             ))}
           </ul>
         )}
+      </div>
+      <div className="mt-2 px-2">
+        <GoSearch color="white" />
       </div>
     </div>
   );

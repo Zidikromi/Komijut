@@ -18,6 +18,7 @@ export interface RecommendedComic {
 }
 
 export interface SearchGet {
+    results: any
     slice:any
     data: any
     endpoint: any
