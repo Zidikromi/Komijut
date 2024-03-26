@@ -6,6 +6,7 @@ import RecomManga from '../components/RecomManga';
 import { PopularComic, RecommendedComic } from '../lib/types';
 import { getPopularComic, getRecommendedComic, } from '../lib/api';
 import Top from '../components2/Top';
+import Popularmanga from '../components2/Popularmanga';
 
 
 
@@ -50,7 +51,8 @@ const Home2 = () => {
     return (
         <>
             <Navbar />
-            <Top popular={popular}/>
+            <Top popular={popular} />
+            <Popularmanga popular={popular} />
             {/* <SearchInput /> */}
             {/* {loading && (
                 <div className="flex justify-center items-center mt-10">

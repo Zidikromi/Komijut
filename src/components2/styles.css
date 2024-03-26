@@ -1,0 +1,5 @@
+.divider-neutral:before,
+.divider-neutral:after {
+    background-color: white;
+    -tw-bg-opacity: 1
+}

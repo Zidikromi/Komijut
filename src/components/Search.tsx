@@ -44,24 +44,23 @@ const SearchInput = () => {
           style={{ fontFamily: 'NamaFont, sans-serif' }}
         />
         {searchResults.length > 0 && ( // Tambahkan kondisi disini
-          <ul className="menu menu-sm bg-[#FFEBD8] w-[179.69px] rounded-box border-white mt-0.5 absolute z-10 border">
+          <ul className="menu menu-sm bg-[#FFEBD8] w-[179.69px] rounded-box border-white mt-0.5 absolute z-10 border gap-2">
             {searchResults.map((result, index) => (
               <React.Fragment key={index}>
                 <Link to={result.endpoint.startsWith('/') ? result.endpoint.substring(1) : result.endpoint} className="flex gap-2 mt-1 bg-white bg-opacity-20 border-white border rounded-box max-h-[107px]">
                   <img src={result.image} alt="" className="w-[68.3px] h-[107px] object-cover rounded-lg" />
                   <div className="flex flex-col justify-center">
-                    <div className="text-[13px] font-semibold flex items-center text-[#8C6D48]" style={{ fontFamily: 'NamaFont, sans-serif' }}>{result.title}</div>
-                    <div className="text-[10px] font-medium flex items-center text-[#8C6D48]" style={{ fontFamily: 'NamaFont, sans-serif' }}>{result.type}</div>
+                    <div className="text-[13px] font-semibold flex items-center text-[#8C6D48]" style={{ fontFamily: 'Utendo, sans-serif' }}>{result.title}</div>
+                    <div className="text-[10px] font-medium flex items-center text-[#8C6D48]" style={{ fontFamily: 'Utendo, sans-serif' }}>{result.type}</div>
                   </div>
                 </Link>
-                {index !== searchResults.length - 1 && <hr className="my-1" />}
               </React.Fragment>
             ))}
           </ul>
         )}
       </div>
-      <div className="mt-2 px-2">
-        <GoSearch color="white" />
+      <div className="mt-1 px-1 ">
+        <GoSearch color="white" size={20} />
       </div>
     </div>
   );

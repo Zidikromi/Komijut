@@ -3,12 +3,24 @@
 @tailwind utilities;
 
 #root {
-    background-color: white ;
+    background-color: white;
 }
 
 @font-face {
-    font-family: 'NamaFont';
+    font-family: 'Utendo';
     src: url('../src/font/Utendo-Regular.ttf') format('truetype');
-    /* Ganti 'NamaFont' dengan nama font yang Anda inginkan */
-    /* Ganti '../font/NamaFont-Regular.ttf' dengan path yang sesuai ke file font */
-  }
+
+}
+
+@font-face {
+    font-family: 'Milker';
+    src: url('../src/font/Milker.otf') format('truetype');
+
+}
+
+.divider-neutral:before,
+.divider-neutral:after {
+    background-color: white;
+    -tw-bg-opacity: 1
+}
+

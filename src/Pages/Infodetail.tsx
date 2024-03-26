@@ -32,7 +32,7 @@ const Infodetail = () => {
                 <img src={info.thumbnail} alt="Comic" className="w-full h-full rounded-xl" />
               </div>
               <div className="shadow-lg rounded-lg pl-6 md:w-[75%] ">
-                <h2 className="text-2xl font-semibold mt-4 mb-2">{info.title}</h2>
+                <h2 className="text-2xl font-Bold mt-4 mb-2 text-[#d6a76f]" style={{ fontFamily: 'Namafont' }} >{info.title}</h2>
                 <p className="text-lg mb-2"><span className="font-semibold">Author:</span> {info.author}</p>
                 <p className="text-lg mb-2"><span className="font-semibold">Rating:</span> {info.rating}</p>
                 <p className="text-lg mb-2"><span className="font-semibold">Status:</span> {info.status}</p>
