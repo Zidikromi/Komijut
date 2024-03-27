@@ -1,7 +1,6 @@
 
 import { PopularComic } from "../lib/types";
 
-import { Swiper, SwiperSlide } from 'swiper/react';
 
 // Import Swiper styles
 import 'swiper/css';
@@ -10,7 +9,7 @@ import 'swiper/css/navigation';
 
 
 // import required modules
-import { Autoplay } from 'swiper/modules';
+
 import { Link } from "react-router-dom";
 
 interface PopularMangaProps {
@@ -18,7 +17,7 @@ interface PopularMangaProps {
 
 }
 
-const Top = ({ popular }: PopularMangaProps) => {
+const Top = ({ }: PopularMangaProps) => {
 
     return (
         <>

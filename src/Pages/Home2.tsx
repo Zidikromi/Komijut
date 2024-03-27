@@ -14,7 +14,7 @@ import Recommendedcompo from '../components2/recommend';
 const Home2 = () => {
     const [recommend, setRecommend] = useState<RecommendedComic[]>([]);
     const [popular, setPopular] = useState<PopularComic[]>([]);
-    const [loading, setLoading] = useState<boolean>(true); // State untuk loading
+ 
 
     const fetchRecommendedData = async () => {
         try {
@@ -43,7 +43,6 @@ const Home2 = () => {
     const getData = async () => {
         await fetchRecommendedData();
         await fetchPopularData();
-        setLoading(false);
     }
 
     useEffect(() => {

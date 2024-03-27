@@ -1,6 +1,5 @@
 import { PopularComic } from "../lib/types";
 import { Link } from "react-router-dom";
-import { FaChevronCircleRight } from "react-icons/fa";
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 // Import Swiper styles
@@ -9,7 +8,7 @@ import 'swiper/css/free-mode';
 import 'swiper/css/pagination';
 import './styles.css'
 // import './styleswiper.css';
-import { Autoplay, FreeMode, Navigation, Pagination } from 'swiper/modules';
+import { Autoplay, FreeMode, Navigation } from 'swiper/modules';
 import Popularsvg from "../assets/Popularsvg";
 // import required modules
 

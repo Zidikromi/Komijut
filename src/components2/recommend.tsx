@@ -5,7 +5,7 @@ import 'swiper/css';
 import 'swiper/css/free-mode';
 import 'swiper/css/pagination';
 import './styles.css'
-import { Autoplay, FreeMode, Navigation, Pagination } from 'swiper/modules';
+import { Autoplay, FreeMode, Navigation } from 'swiper/modules';
 import RecommendSvg from "../assets/Recommendsvg";
 
 

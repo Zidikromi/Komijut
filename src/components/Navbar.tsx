@@ -1,6 +1,6 @@
-import { Link } from "react-router-dom"
+
 import SearchInput from "./Search"
-import { FaMoon, FaRegMoon, FaThemeco } from "react-icons/fa"
+
 
 const Navbar = () => {
     return (
