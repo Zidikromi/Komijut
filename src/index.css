@@ -24,6 +24,12 @@
     -tw-bg-opacity: 1
 }
 
+.divider-gold:before,
+.divider-gold:after {
+    background-color: #D6A76F;
+    -tw-bg-opacity: 1
+}
+
 .swiper-slide:not(.swiper-slide-duplicate):not(.swiper-slide-active) {
     transform: scale(0.8);
     /* Ubah nilai skala sesuai kebutuhan */
@@ -81,7 +87,8 @@
     /* Warna yang diinginkan */
     opacity: 0.5;
     /* Atur opasitas jika diperlukan */
-    transition: opacity 0.3s ease; /* Animasi efek fade */
+    transition: opacity 0.3s ease;
+    /* Animasi efek fade */
 }
 
 .swiper-pagination-bullet-active {
@@ -90,5 +97,75 @@
     height: 10px;
     border-radius: 30px;
     /* Mengatur opasitas untuk bullet yang aktif */
-    transition: width 0.3s ease, border-radius 0.3s ease; /* Animasi efek fade dan radius */
+    transition: width 0.3s ease, border-radius 0.3s ease;
+    /* Animasi efek fade dan radius */
+}
+
+/* Lebar scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+/* Track scrollbar */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle scrollbar */
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+/* Hover handle scrollbar */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+
+.scrollbar-container {
+    position: relative;
+}
+
+.scrollbar-track {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 8px;
+    /* Lebar scrollbar */
+    height: 100%;
+    /* Tinggi scrollbar */
+    background-color: transparent;
+    /* Warna latar belakang scrollbar */
+}
+
+.scrollbar-thumb {
+    width: 100%;
+    background-color: #888;
+    /* Warna scrollbar */
+    border-radius: 4px;
+    /* Membuat scrollbar menjadi bulat */
+    cursor: pointer;
+}
+
+/* Hover effect untuk thumb scrollbar */
+.scrollbar-thumb:hover {
+    background-color: #555;
+}
+
+/* Animasi untuk thumb scrollbar */
+@keyframes scroll-animation {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+/* Style untuk scrollbar saat mouse berada di dalam container */
+.scrollbar-container:hover .scrollbar-thumb {
+    animation: scroll-animation 1s infinite alternate;
+    /* Menerapkan animasi */
 }

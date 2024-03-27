@@ -27,19 +27,20 @@ const Infodetail = () => {
       <div className="container mx-auto mt-8 p-4 rounded-lg flex justify-center">
         {info ? (
           <div className='flex flex-col'>
-            <div className="flex flex-col md:flex-row gap-2 md:h-[400px] md:max-w-4xl">
-              <div className="rounded-lg inline-block md:h-full max-w-md">
-                <img src={info.thumbnail} alt="Comic" className="w-full h-full rounded-xl" />
+            <div className="flex flex-col md:flex-row gap-2 md:h-[400px] md:max-w-4xl items-center">
+              <div className="rounded-lg inline-block md:h-full max-w-[321px]">
+                <img src={info.thumbnail} alt="Comic" className="w-full h-full rounded-xl " />
               </div>
-              <div className="shadow-lg rounded-lg pl-6 md:w-[75%] ">
-                <h2 className="text-2xl font-Bold mt-4 mb-2 text-[#d6a76f]" style={{ fontFamily: 'Namafont' }} >{info.title}</h2>
-                <p className="text-lg mb-2"><span className="font-semibold">Author:</span> {info.author}</p>
-                <p className="text-lg mb-2"><span className="font-semibold">Rating:</span> {info.rating}</p>
-                <p className="text-lg mb-2"><span className="font-semibold">Status:</span> {info.status}</p>
-                <p className="text-lg mb-2"><span className="font-semibold">Type:</span> {info.type}</p>
+              <div className="pl-6 md:w-[75%] leading-7 ">
+                <h2 className="text-[36px] font-extrabold mt-4 mb-0 text-[#d6a76f]" style={{ fontFamily: 'Utendo' }} >{info.title}</h2>
+                <div className="divider w-20 sm:w-[150px] md:w-[296px] m-0 divider-gold" ></div>
+                <p className="text-[20px] mb-2" style={{ fontFamily: 'Utendo' }}><span className="font-semibold">Author :</span> {info.author}</p>
+                <p className="text-[20px] mb-2" style={{ fontFamily: 'Utendo' }}><span className="font-semibold">Rating :</span> {info.rating}</p>
+                <p className="text-[20px] mb-2" style={{ fontFamily: 'Utendo' }}><span className="font-semibold">Status :</span> {info.status}</p>
+                <p className="text-[20px] mb-2" style={{ fontFamily: 'Utendo' }}><span className="font-semibold">Type :</span> {info.type}</p>
                 <div className="flex flex-wrap">
                   {info.genre && info.genre.map((genre, index) => (
-                    <div key={index} className="bg-gray-200 text-gray-800 rounded-full px-3 py-1 text-sm font-semibold mr-2 mb-2">{genre}</div>
+                    <div key={index} className="bg-[#d6a76f] text-white rounded-full px-3 py-1 text-sm font-semibold mr-2 mb-2">{genre}</div>
                   ))}
                 </div>
               </div>
