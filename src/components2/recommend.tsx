@@ -1,27 +1,23 @@
-import { PopularComic } from "../lib/types";
+import { RecommendedComic } from "../lib/types";
 import { Link } from "react-router-dom";
-import { FaChevronCircleRight } from "react-icons/fa";
 import { Swiper, SwiperSlide } from 'swiper/react';
-
-// Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/free-mode';
 import 'swiper/css/pagination';
 import './styles.css'
-// import './styleswiper.css';
 import { Autoplay, FreeMode, Navigation, Pagination } from 'swiper/modules';
-import Popularsvg from "../assets/Popularsvg";
-// import required modules
+import RecommendSvg from "../assets/Recommendsvg";
 
-interface PopularMangaProps {
-    popular: PopularComic[]
+
+interface RecommendedcompoProps {
+    recommend: RecommendedComic[]
 
 }
 
-const Popularmanga = ({ popular }: PopularMangaProps) => {
+const Recommendedcompo = ({ recommend }: RecommendedcompoProps) => {
 
     return (
-        <div className="flex h-[100%] sm:h-[100vh] md:h-[100vh] lg:h-[480px] w-full justify-between items-center  md:mt-1 flex-col-reverse lg:flex-row gap-2 ">
+        <div className="flex h-[100%] sm:h-[100vh] md:h-[100vh] lg:h-[480px] w-full justify-between items-center  md:mt-1 flex-col-reverse lg:flex-row-reverse gap-2 ">
             <div className="w-[100%] sm:w-[100%] flex items-center lg:w-[58%] ">
                 <Swiper
                     slidesPerView={2}
@@ -30,14 +26,14 @@ const Popularmanga = ({ popular }: PopularMangaProps) => {
                     centeredSlides={true}
 
                     autoplay={{
-                        delay: 2500,
+                        delay: 3500,
                         disableOnInteraction: false,
                         pauseOnMouseEnter: true,
                     }}
                     loop={true}
                     navigation={false}
                     modules={[FreeMode, Navigation, Autoplay]}
-                    className="mySwiper lg:ml-20"
+                    className="mySwiper lg:mr-20"
                     breakpoints={{
                         640: {
                             slidesPerView: 2,
@@ -50,7 +46,7 @@ const Popularmanga = ({ popular }: PopularMangaProps) => {
                     }}
                     effect={'creative'}
                 >
-                    {popular.map((comic, index) => (
+                    {recommend.map((comic, index) => (
                         <SwiperSlide key={index} className="pb-10 md:h-[433.79px] sm:h-[350.79px]  lg:w-[434.63px]" >
                             <Link to={comic.endpoint.startsWith('/') ? comic.endpoint.substring(1) : comic.endpoint} className="group block rounded-[25.07px] overflow-hidden shadow-md h-full bg-gradient-to-r from-[#D6A76F] to-[#8C6D48] ">
                                 <img src={comic.image} alt="Manga Cover" className="w-full h-[100px] sm:h-[140px] md:h-[200px] object-cover" />
@@ -71,13 +67,10 @@ const Popularmanga = ({ popular }: PopularMangaProps) => {
                 </Swiper>
             </div>
             <div className="h-full flex items-center px-16 lg:w-full mt-2" >
-                <Popularsvg />
+                <RecommendSvg />
             </div>
-            {/* <h1 className="text-3xl font-bold text-center mb-6">Popular Manga</h1> */}
-            {/* <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6"> */}
-
         </div >
     );
 }
 
-export default Popularmanga;
+export default Recommendedcompo;

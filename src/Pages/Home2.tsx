@@ -1,31 +1,32 @@
 import { useEffect, useState } from 'react';
 import Navbar from '../components/Navbar';
-import CardManga from '../components/CardManga';
 
-import RecomManga from '../components/RecomManga';
+
 import { PopularComic, RecommendedComic } from '../lib/types';
 import { getPopularComic, getRecommendedComic, } from '../lib/api';
 import Top from '../components2/Top';
 import Popularmanga from '../components2/Popularmanga';
+import Recommendedcompo from '../components2/recommend';
+
 
 
 
 const Home2 = () => {
-    // const [recommend, setRecommend] = useState<RecommendedComic[]>([]);
+    const [recommend, setRecommend] = useState<RecommendedComic[]>([]);
     const [popular, setPopular] = useState<PopularComic[]>([]);
     const [loading, setLoading] = useState<boolean>(true); // State untuk loading
 
-    // const fetchRecommendedData = async () => {
-    //     try {
-    //         const recommang = await getRecommendedComic();
+    const fetchRecommendedData = async () => {
+        try {
+            const recommang = await getRecommendedComic();
 
-    //         if (recommang && recommang.data) {
-    //             setRecommend(recommang.data);
-    //         }
-    //     } catch (error) {
-    //         console.error('Error fetching recommended data:', error);
-    //     }
-    // };
+            if (recommang && recommang.data) {
+                setRecommend(recommang.data);
+            }
+        } catch (error) {
+            console.error('Error fetching recommended data:', error);
+        }
+    };
 
     const fetchPopularData = async () => {
         try {
@@ -40,7 +41,7 @@ const Home2 = () => {
     };
 
     const getData = async () => {
-        // await fetchRecommendedData();
+        await fetchRecommendedData();
         await fetchPopularData();
         setLoading(false);
     }
@@ -53,6 +54,7 @@ const Home2 = () => {
             <Navbar />
             <Top popular={popular} />
             <Popularmanga popular={popular} />
+            <Recommendedcompo recommend={recommend} />
             {/* <SearchInput /> */}
             {/* {loading && (
                 <div className="flex justify-center items-center mt-10">

@@ -33,7 +33,7 @@ const SearchInput = () => {
   };
 
   return (
-    <div className="container ml-auto px-6 mt-2 flex justify-end">
+    <div className="container ml-auto px-2 mt-2 flex justify-end">
       <div>
         <input
           type="text"
@@ -59,7 +59,7 @@ const SearchInput = () => {
           </ul>
         )}
       </div>
-      <div className="mt-1 px-1 ">
+      <div className="mt-1.5 px-1 hidden md:flex">
         <GoSearch color="white" size={20} />
       </div>
     </div>

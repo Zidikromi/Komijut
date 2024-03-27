@@ -18,7 +18,7 @@ const App: React.FC = () => {
   }, []);
 
   // Menyesuaikan warna latar belakang berdasarkan tema
-  const bgColor = isDarkMode ? '#333' : '#FFF8F0';
+  const bgColor =  '#FFF8F0';
   const textColor = isDarkMode ? '#fff' : '#000'; // Warna teks sesuai tema
 
 

@@ -24,7 +24,7 @@ const Top = ({ popular }: PopularMangaProps) => {
         <>
             <div className="flex h-[190px] sm:h-[300px] md:h-[480px]  w-full justify-between ">
                 <div className="flex items-center">
-                    <div className="absolute z-10 text-[40px] sm:text-[66px] md:text-[96px] items-center justify-center text-[#D6A76F] pl-6 sm:pl-10 md:pl-20 leading-none" style={{ fontFamily: 'Milker' }}>Favorite <br />Comics</div>
+                <div className="absolute z-10 text-[40px] sm:text-[66px] md:text-[96px] items-center justify-center pl-6 sm:pl-10 md:pl-20 leading-none text-gradient" style={{ fontFamily: 'Milker' }}>Favorite <br />Comics</div>
                 </div>
                 <div className="flex ">
 

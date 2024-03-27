@@ -24,3 +24,71 @@
     -tw-bg-opacity: 1
 }
 
+.swiper-slide:not(.swiper-slide-duplicate):not(.swiper-slide-active) {
+    transform: scale(0.8);
+    /* Ubah nilai skala sesuai kebutuhan */
+    transition-duration: 0.5s;
+    /* Menambahkan efek transisi */
+}
+
+.swiper-slide.swiper-slide-active {
+    transform: scale(1);
+    /* Skala normal untuk slide yang aktif */
+    transition-duration: 0.5s;
+    /* Efek transisi ketika berpindah slide */
+}
+
+.swiper-slide:not(.swiper-slide-duplicate):not(.swiper-slide-active) {
+    filter: blur(2px);
+    /* Menambahkan efek blur */
+    transition-duration: 0.5s;
+    /* Menambahkan efek transisi */
+}
+
+@keyframes gradient-animation {
+
+    0%,
+    100% {
+        background-position: 0% 50%;
+        /* Awal dan akhir animasi, posisi di kiri */
+    }
+
+    50% {
+        background-position: 100% 50%;
+        /* Posisi di kanan saat setengah waktu animasi */
+    }
+}
+
+/* Mengaplikasikan animasi pada teks dengan gradient */
+.text-gradient {
+    background: radial-gradient(circle, #966021, #D6A76F);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% auto;
+    /* Ukuran latar belakang */
+    animation: gradient-animation 5s ease infinite;
+    /* Animasi */
+}
+
+.swiper-pagination {
+    bottom: 10px;
+}
+
+.swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+    background-color: #D6A76F;
+    /* Warna yang diinginkan */
+    opacity: 0.5;
+    /* Atur opasitas jika diperlukan */
+    transition: opacity 0.3s ease; /* Animasi efek fade */
+}
+
+.swiper-pagination-bullet-active {
+    opacity: 1;
+    width: 24px;
+    height: 10px;
+    border-radius: 30px;
+    /* Mengatur opasitas untuk bullet yang aktif */
+    transition: width 0.3s ease, border-radius 0.3s ease; /* Animasi efek fade dan radius */
+}
