@@ -32,7 +32,7 @@ const App: React.FC = () => {
       <Router>
         <Routes>
           <Route path="/" element={<Home2 />} />
-          <Route path="/home" element={<Home />} />
+          {/* <Route path="/home" element={<Home />} /> */}
 
           <Route path="/manga/:mangaid" element={<Infodetail />} />
           <Route path="/manhwa/:mangaid" element={<Infodetail />} />

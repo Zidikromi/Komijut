@@ -48,12 +48,25 @@ const Home2 = () => {
     useEffect(() => {
         getData()
     }, []);
+
+    const handleNavItemClick = (sectionId: string) => {
+        const section = document.getElementById(sectionId);
+        if (section) {
+            section.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
     return (
         <>
-            <Navbar />
+            <Navbar onNavItemClick={handleNavItemClick}/>
+            <div id='top'>
             <Top popular={popular} />
+            </div>
+            <div id='popular'>
             <Popularmanga popular={popular} />
+            </div>
+            <div id='recommended'>
             <Recommendedcompo recommend={recommend} />
+            </div>
         </>
     );
 };

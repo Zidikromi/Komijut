@@ -3,6 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 import { InfoComic } from '../lib/types';
 import { getInfoComic } from '../lib/api';
 import Navbar from '../components/Navbar';
+import Navbar2 from '../components/Navbar2';
 
 const Infodetail = () => {
   const { mangaid } = useParams<{ mangaid: string }>();
@@ -23,7 +24,7 @@ const Infodetail = () => {
 
   return (
     <>
-      <Navbar />
+      <Navbar2 />
       <div className="container mx-auto mt-8 p-4 rounded-lg flex justify-center">
         {info ? (
           <div className='flex flex-col'>
@@ -32,7 +33,7 @@ const Infodetail = () => {
                 <img src={info.thumbnail} alt="Comic" className="w-full h-full rounded-xl " />
               </div>
               <div className="pl-6 md:w-[75%] leading-8 ">
-                <h2 className="text-[36px] font-extrabold mt-4 mb-0 text-[#d6a76f] line-clamp-2" style={{ fontFamily: 'Utendo' }} >{info.title}</h2>
+                <h2 className="text-[36px] font-extrabold mt-4 mb-0 text-[#d6a76f] line-clamp-2np" style={{ fontFamily: 'Utendo' }} >{info.title}</h2>
                 <div className="divider w-20 sm:w-[150px] md:w-[296px] m-0 divider-gold" ></div>
                 <p className="text-[20px] mb-2" style={{ fontFamily: 'Utendo' }}><span className="font-semibold">Author :</span> {info.author}</p>
                 <p className="text-[20px] mb-2" style={{ fontFamily: 'Utendo' }}><span className="font-semibold">Rating :</span> {info.rating}</p>

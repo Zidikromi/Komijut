@@ -1,10 +1,7 @@
+import { Link } from "react-router-dom";
 import SearchInput from "./Search"
 
-interface NavbarProps {
-    onNavItemClick: (sectionId: string) => void;
-}
-
-const Navbar = ({ onNavItemClick }: NavbarProps) => {
+const Navbar2 = () => {
 
     return (
         <>
@@ -15,9 +12,9 @@ const Navbar = ({ onNavItemClick }: NavbarProps) => {
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                         </div>
                         <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 z-20">
-                            <li><a onClick={() => onNavItemClick('top')}>HOME</a></li>
-                            <li><a onClick={() => onNavItemClick('popular')}>POPULAR</a></li>
-                            <li><a onClick={() => onNavItemClick('recommended')}>RECOMMENDED</a></li>
+                            <li><Link to={'/'}>HOME</Link></li>
+                            <li><Link to={'/'}>POPULAR</Link></li>
+                            <li><Link to={'/'}>RECOMMENDED</Link></li>
                         </ul>
                     </div>
                     <div className="pl-[58px] lg:flex hidden">
@@ -34,9 +31,9 @@ const Navbar = ({ onNavItemClick }: NavbarProps) => {
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
-                        <li><a className="text-[#FFF8F0] text-[16px]" onClick={() => onNavItemClick('top')}>HOME</a></li>
-                        <li><a className="text-[#FFF8F0] text-[16px]" onClick={() => onNavItemClick('popular')}>POPULAR</a></li>
-                        <li><a className="text-[#FFF8F0] text-[16px]" onClick={() => onNavItemClick('recommended')}>RECOMMENDED</a></li>
+                        <li><Link to={'/'} className="text-[#FFF8F0] text-[16px]" >HOME</Link></li>
+                        <li><Link to={'/'} className="text-[#FFF8F0] text-[16px]" >POPULAR</Link></li>
+                        <li><Link to={'/'} className="text-[#FFF8F0] text-[16px]" >RECOMMENDED</Link></li>
 
                     </ul>
                 </div>
@@ -48,4 +45,4 @@ const Navbar = ({ onNavItemClick }: NavbarProps) => {
     )
 }
 
-export default Navbar
+export default Navbar2
