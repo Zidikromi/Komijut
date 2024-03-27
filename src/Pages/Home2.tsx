@@ -54,21 +54,6 @@ const Home2 = () => {
             <Top popular={popular} />
             <Popularmanga popular={popular} />
             <Recommendedcompo recommend={recommend} />
-            {/* <SearchInput /> */}
-            {/* {loading && (
-                <div className="flex justify-center items-center mt-10">
-                    <span className="loading loading-dots loading-lg"></span>
-                </div>
-            )}
-            {!loading && ( */}
-            <>
-
-                {/* <CardManga popular={popular} /> */}
-                {/* <Cardtop /> */}
-
-                {/* <RecomManga recommend={recommend} /> */}
-            </>
-            {/* )} */}
         </>
     );
 };

@@ -4,6 +4,7 @@ import Home from './Pages/Home';
 import Infodetail from './Pages/Infodetail';
 import Chapter from './Pages/chapter';
 import Home2 from './Pages/Home2';
+import { useSpring, animated } from 'react-spring';
 
 const App: React.FC = () => {
   // State untuk menyimpan status tema gelap/terang
@@ -18,12 +19,16 @@ const App: React.FC = () => {
   }, []);
 
   // Menyesuaikan warna latar belakang berdasarkan tema
-  const bgColor =  '#FFF8F0';
+  const bgColor = '#FFF8F0';
   const textColor = isDarkMode ? '#fff' : '#000'; // Warna teks sesuai tema
-
+  const contentAnimation = useSpring({
+    opacity: 1,
+    from: { opacity: 0 },
+    delay: 500,
+  });
 
   return (
-    <div style={{ backgroundColor: bgColor, minHeight: '100vh', color: textColor }}>
+    <animated.div style={{ backgroundColor: bgColor, minHeight: '100vh', color: textColor, ...contentAnimation }}>
       <Router>
         <Routes>
           <Route path="/" element={<Home2 />} />
@@ -35,7 +40,7 @@ const App: React.FC = () => {
           <Route path="/manga/:mangaid/chapter/ch/:chapterid" element={<Chapter />} />
         </Routes>
       </Router>
-    </div>
+    </animated.div>
   );
 };
 
