@@ -1,16 +1,12 @@
 import { PopularComic } from "../lib/types";
 import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from 'swiper/react';
-
-// Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/free-mode';
 import 'swiper/css/pagination';
 import './styles.css'
-// import './styleswiper.css';
 import { Autoplay, FreeMode, Navigation } from 'swiper/modules';
 import Popularsvg from "../assets/Popularsvg";
-// import required modules
 
 interface PopularMangaProps {
     popular: PopularComic[]

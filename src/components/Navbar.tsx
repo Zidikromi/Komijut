@@ -30,7 +30,6 @@ const Navbar = ({ onNavItemClick }: NavbarProps) => {
                         <li><a className="text-[#FFF8F0] text-[16px]" onClick={() => onNavItemClick('top')}>HOME</a></li>
                         <li><a className="text-[#FFF8F0] text-[16px]" onClick={() => onNavItemClick('popular')}>POPULAR</a></li>
                         <li><a className="text-[#FFF8F0] text-[16px]" onClick={() => onNavItemClick('recommended')}>RECOMMENDED</a></li>
-
                     </ul>
                 </div>
                 <div className="navbar-end flex justify-end items-center ">

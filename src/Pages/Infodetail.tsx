@@ -19,9 +19,6 @@ const Infodetail = () => {
 
         const lastChapter = localStorage.getItem(`${mangaid}_last_chapter`);
         const lastChapterName = localStorage.getItem(`${mangaid}_last_chapter_name`);
-        console.log('Cihuy2', lastChapterName)
-
-        console.log('Cihuy', lastChapter)
         setLastReadChapter(lastChapter);
         setLastReadChapterName(lastChapterName);
       } catch (error) {

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Navbar from '../components/Navbar';
 import { PopularComic, RecommendedComic } from '../lib/types';
 import { getPopularComic, getRecommendedComic } from '../lib/api';
