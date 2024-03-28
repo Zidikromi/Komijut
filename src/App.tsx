@@ -19,7 +19,7 @@ const App: React.FC = () => {
 
   // Menyesuaikan warna latar belakang berdasarkan tema
   const bgColor = '#FFF8F0';
-  const textColor = isDarkMode ? '#fff' : '#000'; // Warna teks sesuai tema
+  const textColor = isDarkMode ? '#fff' : '#000'; /
   const contentAnimation = useSpring({
     opacity: 1,
     from: { opacity: 0 },
@@ -27,7 +27,7 @@ const App: React.FC = () => {
   });
 
   return (
-    <animated.div style={{ backgroundColor: bgColor, minHeight: '100vh', color: textColor, ...contentAnimation }}>
+    <animated.div style={{ backgroundColor: bgColor, minHeight: '100vh', ...contentAnimation }}>
       <Router>
         <Routes>
           <Route path="/" element={<Home2 />} />
