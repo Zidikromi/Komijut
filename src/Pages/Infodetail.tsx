@@ -53,10 +53,10 @@ const Infodetail = () => {
               <div className="pl-6 md:w-[75%] leading-8 ">
                 <h2 className="text-[36px] font-extrabold mt-4 mb-0 text-[#d6a76f] line-clamp-2np" style={{ fontFamily: 'Utendo' }} >{info.title}</h2>
                 <div className="divider w-20 sm:w-[150px] md:w-[296px] m-0 divider-gold" ></div>
-                <p className="text-[20px] mb-2" style={{ fontFamily: 'Utendo' }}><span className="font-semibold">Author :</span> {info.author}</p>
-                <p className="text-[20px] mb-2" style={{ fontFamily: 'Utendo' }}><span className="font-semibold">Rating :</span> {info.rating}</p>
-                <p className="text-[20px] mb-2" style={{ fontFamily: 'Utendo' }}><span className="font-semibold">Status :</span> {info.status}</p>
-                <p className="text-[20px] mb-2" style={{ fontFamily: 'Utendo' }}><span className="font-semibold">Type :</span> {info.type}</p>
+                <p className="text-[20px] mb-2 text-black" style={{ fontFamily: 'Utendo' }}><span className="font-semibold">Author :</span> {info.author}</p>
+                <p className="text-[20px] mb-2 text-black" style={{ fontFamily: 'Utendo' }}><span className="font-semibold">Rating :</span> {info.rating}</p>
+                <p className="text-[20px] mb-2 text-black" style={{ fontFamily: 'Utendo' }}><span className="font-semibold">Status :</span> {info.status}</p>
+                <p className="text-[20px] mb-2 text-black" style={{ fontFamily: 'Utendo' }}><span className="font-semibold">Type :</span> {info.type}</p>
                 <div className="flex flex-wrap">
                   {info.genre && info.genre.map((genre, index) => (
                     <div key={index} className="bg-[#d6a76f] text-white rounded-full px-3 py-1 text-sm font-semibold mr-2 mb-2">{genre}</div>
