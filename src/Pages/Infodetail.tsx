@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { InfoComic } from '../lib/types';
 import { getInfoComic } from '../lib/api';
-import Navbar from '../components/Navbar';
 import Navbar2 from '../components/Navbar2';
 
 const Infodetail = () => {
