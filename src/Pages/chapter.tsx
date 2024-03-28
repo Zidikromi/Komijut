@@ -12,21 +12,19 @@ function Chapter() {
     const [info, setInfo] = useState<InfoComic | null>(null);
     const [nextChapt, setNextChapt] = useState<ChapterDetail | null>(null);
     const [prevChapt, setPrevChapt] = useState<ChapterDetail | null>(null);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const fetchChapter = async () => {
             try {
                 const detailChapter = await getChapter(`/${chapterid}`);
                 setChapter(detailChapter.data);
+                setLoading(false);
             } catch (error) {
                 console.error('Error fetching chapter:', error);
             }
         };
 
-        fetchChapter();
-    }, [chapterid]);
-
-    useEffect(() => {
         const fetchInfoComic = async () => {
             try {
                 const detailInfo = await getInfoComic(`/manga/${mangaid}`);
@@ -36,8 +34,10 @@ function Chapter() {
             }
         };
 
+        fetchChapter();
         fetchInfoComic();
-    }, [mangaid]);
+    }, [mangaid, chapterid]);
+
 
     useEffect(() => {
 
@@ -99,6 +99,14 @@ function Chapter() {
             console.log('Next chapter is not available');
 
         }
+    }
+
+    if (loading) {
+        return (
+            <div className="container mx-auto px-4 rounded-lg flex justify-center items-center h-screen">
+                <span className="loader"></span>
+            </div>
+        );
     }
 
     return (

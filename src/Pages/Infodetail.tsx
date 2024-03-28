@@ -96,7 +96,9 @@ const Infodetail = () => {
             </div>
           </div>
         ) : (
-          <p className="text-4xl"><span className="loading loading-dots loading-lg"></span></p>
+          <div className='flex justify-center items-center h-screen'>
+            <span className="loader"></span>
+          </div>
         )}
       </div>
     </>

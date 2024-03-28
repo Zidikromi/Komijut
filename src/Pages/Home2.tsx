@@ -1,20 +1,15 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Navbar from '../components/Navbar';
-
-
 import { PopularComic, RecommendedComic } from '../lib/types';
-import { getPopularComic, getRecommendedComic, } from '../lib/api';
+import { getPopularComic, getRecommendedComic } from '../lib/api';
 import Top from '../components2/Top';
 import Popularmanga from '../components2/Popularmanga';
 import Recommendedcompo from '../components2/recommend';
 
-
-
-
 const Home2 = () => {
     const [recommend, setRecommend] = useState<RecommendedComic[]>([]);
     const [popular, setPopular] = useState<PopularComic[]>([]);
- 
+    const [loading, setLoading] = useState<boolean>(true);
 
     const fetchRecommendedData = async () => {
         try {
@@ -41,12 +36,14 @@ const Home2 = () => {
     };
 
     const getData = async () => {
+        setLoading(true);
         await fetchRecommendedData();
         await fetchPopularData();
-    }
+        setLoading(false);
+    };
 
     useEffect(() => {
-        getData()
+        getData();
     }, []);
 
     const handleNavItemClick = (sectionId: string) => {
@@ -55,18 +52,27 @@ const Home2 = () => {
             section.scrollIntoView({ behavior: 'smooth' });
         }
     };
+
     return (
         <>
-            <Navbar onNavItemClick={handleNavItemClick}/>
-            <div id='top'>
-            <Top popular={popular} />
-            </div>
-            <div id='popular'>
-            <Popularmanga popular={popular} />
-            </div>
-            <div id='recommended'>
-            <Recommendedcompo recommend={recommend} />
-            </div>
+            <Navbar onNavItemClick={handleNavItemClick} />
+            {loading ? (
+                <div className='flex justify-center items-center h-screen'>
+                    <span className="loader"></span>
+                </div>
+            ) : (
+                <>
+                    <div id='top'>
+                        <Top popular={popular} />
+                    </div>
+                    <div id='popular'>
+                        <Popularmanga popular={popular} />
+                    </div>
+                    <div id='recommended'>
+                        <Recommendedcompo recommend={recommend} />
+                    </div>
+                </>
+            )}
         </>
     );
 };
