@@ -19,7 +19,6 @@ const App: React.FC = () => {
 
   // Menyesuaikan warna latar belakang berdasarkan tema
   const bgColor = '#FFF8F0';
-  const textColor = isDarkMode ? '#fff' : '#000'; /
   const contentAnimation = useSpring({
     opacity: 1,
     from: { opacity: 0 },
