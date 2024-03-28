@@ -38,19 +38,6 @@ export const getRecommendedComic = async () => {
 }
 
 
-// export const getRecommendedComic = async () => {
-
-
-//     try {
-//         const response = await fetch(`${KOMIKU_BASE_URL}/recommended/page/1`,);
-//         const data2: RecommendedComic = await response.json();
-//         // console.log('ambas', data2);
-//         return data2;
-//     } catch (error) {
-//         console.error('Error fetching recommended comics:', error);
-//         throw error;
-//     }
-// };
 
 export const getInfoComic = async (endpoint: string) => {
     const options: RequestInit = {
@@ -110,43 +97,4 @@ export const GetSearch = async (q: string) => {
     }
 };
 
-// export const GetSearch = async (q: string) => {
-//     const options: RequestInit = {
-//         headers: {
-//             'Content-Type': 'application/json',
-//         },
-//         mode: 'cors',
-//     };
 
-//     try {
-//         // Fetch search results
-//         const response = await fetch(`${KOMIKU_BASE_URL}/search/${q}`, options);
-//         const searchData: SearchGet = await response.json();
-//         console.log('Search data:', searchData);
-
-//         if (searchData.results) { // Check if searchData.results is not undefined
-//             // Fetch comic info for each result
-//             const infoPromises = searchData.results.map(async (result) => {
-//                 try {
-//                     const infoResponse = await fetch(`${KOMIKU_BASE_URL}/info${result.endpoint}`, options);
-//                     const infoData: InfoComic = await infoResponse.json();
-//                     return { ...result, info: infoData }; // Merge search result with comic info
-//                 } catch (error) {
-//                     console.error('Error fetching comic info:', error);
-//                     throw error;
-//                 }
-//             });
-
-//             // Wait for all info requests to finish
-//             const combinedData = await Promise.all(infoPromises);
-//             console.log('Combined data:', combinedData);
-//             return combinedData;
-//         } else {
-//             console.error('Search results not found');
-//             return [];
-//         }
-//     } catch (error) {
-//         console.error('Error fetching Search:', error);
-//         throw error;
-//     }
-// };

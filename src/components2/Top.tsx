@@ -2,13 +2,12 @@
 import { PopularComic } from "../lib/types";
 
 
-// Import Swiper styles
+
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
 
-// import required modules
 
 import { Link } from "react-router-dom";
 

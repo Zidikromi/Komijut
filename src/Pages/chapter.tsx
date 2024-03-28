@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { getChapter, getInfoComic } from '../lib/api';
 import { ChapterDetail, InfoComic } from '../lib/types';
 import { MdNavigateBefore, MdNavigateNext } from 'react-icons/md';
@@ -117,9 +117,9 @@ function Chapter() {
                                 />
                             ))}
                         </div>
-                        <div className='bg-white w-14 h-14 fixed bg-opacity-70 rounded-full flex justify-center items-center mt-4 ml-4 cursor-pointer text-black hover:text-red-800' onClick={() => window.history.back()}>
+                        <Link to={`/manga/${mangaid}`} className='bg-white w-14 h-14 fixed bg-opacity-70 rounded-full flex justify-center items-center mt-4 ml-4 cursor-pointer text-black hover:text-red-800' >
                             <IoMdArrowBack size={20} />
-                        </div>
+                        </Link>
                         <div className='bg-[#d6a76f] bg-opacity-70 w-full  h-14 max-w-screen-sm bottom-0 flex justify-between items-center px-10'>
                             <div><MdNavigateBefore size={25} onClick={GoToPrevChapter} color='white' className='cursor-pointer' /></div>
                             <div className='font-semibold text-xs md:text-sm text-white'>{chapter.title}</div>
