@@ -48,7 +48,7 @@ const Infodetail = () => {
                 <img src={info.thumbnail} alt="Comic" className="w-full h-full rounded-xl " />
               </div>
               <div className="pl-6 md:w-[75%] leading-8 ">
-                <h2 className="text-[36px] font-extrabold mt-4 mb-0 text-[#d6a76f] line-clamp-2np" style={{ fontFamily: 'Utendo' }} >{info.title}</h2>
+                <h2 className="text-[36px] font-extrabold mt-4 mb-0 text-[#d6a76f] line-clamp-2np " style={{ fontFamily: 'Utendo' }} >{info.title}</h2>
                 <div className="divider w-20 sm:w-[150px] md:w-[296px] m-0 divider-gold" ></div>
                 <p className="text-[20px] mb-2 text-black" style={{ fontFamily: 'Utendo' }}><span className="font-semibold">Author :</span> {info.author}</p>
                 <p className="text-[20px] mb-2 text-black" style={{ fontFamily: 'Utendo' }}><span className="font-semibold">Rating :</span> {info.rating}</p>
