@@ -4,6 +4,7 @@ import Infodetail from './Pages/Infodetail';
 import Chapter from './Pages/chapter';
 import Home2 from './Pages/Home2';
 import { useSpring, animated } from 'react-spring';
+import { MangaProvider } from './lib/MangaContext';
 
 const App: React.FC = () => {
 
@@ -17,6 +18,7 @@ const App: React.FC = () => {
 
   return (
     <animated.div style={{ backgroundColor: bgColor, minHeight: '100vh', ...contentAnimation }}>
+      <MangaProvider >
       <Router>
         <Routes>
           <Route path="/" element={<Home2 />} />
@@ -28,6 +30,7 @@ const App: React.FC = () => {
           <Route path="/manga/:mangaid/chapter/ch/:chapterid" element={<Chapter />} />
         </Routes>
       </Router>
+      </MangaProvider>
     </animated.div>
   );
 };

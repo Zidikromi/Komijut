@@ -1,8 +1,9 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { InfoComic } from '../lib/types';
 import { getInfoComic } from '../lib/api';
 import Navbar2 from '../components/Navbar2';
+import { useManga } from '../lib/MangaContext';
 
 
 const Infodetail = () => {
@@ -10,6 +11,9 @@ const Infodetail = () => {
   const [info, setInfo] = useState<InfoComic | null>(null);
   const [lastReadChapter, setLastReadChapter] = useState<string | null>(null);
   const [lastReadChapterName, setLastReadChapterName] = useState<string | null>(null);
+
+  // Gunakan useManga untuk mengakses konteks
+  const { mangaId, chapterId } = useManga();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -29,11 +33,14 @@ const Infodetail = () => {
     fetchData();
   }, [mangaid]);
 
+  // Menampilkan nilai dari konteks
+  console.log("mangaId from context:", mangaId);
+  console.log("chapterId from context:", chapterId);
 
-  const handleSetLastReadChapter = (chapterEndpoint: string, chapterName: string) => {
+  const handleSetLastReadChapter = (chapterId: string, chapterName: string) => {
     console.log('Handle Set Last Read Chapter called');
-    setLastReadChapter(chapterEndpoint);
-    localStorage.setItem(`${mangaid}_last_chapter`, chapterEndpoint);
+    setLastReadChapter(chapterId);
+    localStorage.setItem(`${mangaid}_last_chapter`, chapterId);
     localStorage.setItem(`${mangaid}_last_chapter_name`, chapterName);
   };
 
@@ -61,11 +68,11 @@ const Infodetail = () => {
                 </div>
                 {lastReadChapterName && (
                   <Link
-                    to={`/manga/${mangaid}/chapter${lastReadChapter}`}
+                    to={`/manga/${mangaid}/chapter/ch/${chapterId}`}
                     className='w-fit border-2 rounded-badge border-[#d6a76f] transition-color duration-300 hover:bg-gradient-to-b from-[#D6A76F] to-[#FFF8F0] flex items-center px-2 gap-1'
                   >
                     {/* <MdOutlinePlayCircle size={20} color='#6B3D07' /> */}
-                    <p className='font-semibold items-center px-2 text-[#6B3D07]' style={{ fontFamily: 'Utendo' }}>Last {lastReadChapterName}</p>
+                    <p className='font-semibold items-center px-2 text-[#6B3D07]' style={{ fontFamily: 'Utendo' }}>Lanjut Membaca</p>
                   </Link>
                 )}
               </div>

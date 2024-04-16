@@ -28,8 +28,8 @@ const Top = ({ }: PopularMangaProps) => {
 
 
                     <div className="relative">
-                        <Link to='/manga/one-piece-indonesia/'>
-                            <img src='https://wallpapers.com/images/featured/one-piece-c0pujiakubq5rwas.jpg' alt="" className="h-full w-[946px]" />
+                        <Link to='/manga/naruto/'>
+                            <img src='https://i.pinimg.com/736x/58/be/89/58be89340dbecb4e4d3fbbd8806bc8de.jpg' alt="" className="h-full w-[946px]" />
                             <div className="absolute inset-0 bg-gradient-to-r from-[#fff8f0] to-transparent"></div>
                         </Link>
                     </div>

@@ -4,9 +4,11 @@ import { getChapter, getInfoComic } from '../lib/api';
 import { ChapterDetail, InfoComic } from '../lib/types';
 import { MdNavigateBefore, MdNavigateNext } from 'react-icons/md';
 import { IoMdArrowBack } from 'react-icons/io';
+import { useManga } from '../lib/MangaContext';
 
 function Chapter() {
     const { mangaid, chapterid } = useParams<{ mangaid: string, chapterid: string }>();
+    const { setIds } = useManga();
 
     const [chapter, setChapter] = useState<ChapterDetail | null>(null);
     const [info, setInfo] = useState<InfoComic | null>(null);
@@ -36,7 +38,11 @@ function Chapter() {
 
         fetchChapter();
         fetchInfoComic();
-    }, [mangaid, chapterid]);
+
+        if (chapterid) {
+            setIds(mangaid, chapterid);
+        }
+    }, [mangaid, chapterid, setIds]);
 
 
     useEffect(() => {
@@ -59,7 +65,7 @@ function Chapter() {
         setNextChapt(nextChapter);
 
         // console.log('idx:', idx);
-        console.log('nextChapt:', nextChapter);
+        // console.log('nextChapt:', nextChapter);
     }, [info, chapterid]);
 
     useEffect(() => {
@@ -79,7 +85,7 @@ function Chapter() {
         setPrevChapt(previousChapter);
 
         // console.log('idx:', idx);
-        console.log('previousChapt:', previousChapter);
+        // console.log('previousChapt:', previousChapter);
     }, [info, chapterid]);
 
 
