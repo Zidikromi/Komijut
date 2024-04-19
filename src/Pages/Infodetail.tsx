@@ -12,7 +12,7 @@ const Infodetail = () => {
   const [lastReadChapter, setLastReadChapter] = useState<string | null>(null);
   const [lastReadChapterName, setLastReadChapterName] = useState<string | null>(null);
 
-  // Gunakan useManga untuk mengakses konteks
+
   const { mangaId, chapterId } = useManga();
 
   useEffect(() => {
