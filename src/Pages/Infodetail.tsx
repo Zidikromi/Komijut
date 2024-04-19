@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import  { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { InfoComic } from '../lib/types';
 import { getInfoComic } from '../lib/api';
@@ -74,6 +74,9 @@ const Infodetail = () => {
                     {/* <MdOutlinePlayCircle size={20} color='#6B3D07' /> */}
                     <p className='font-semibold items-center px-2 text-[#6B3D07]' style={{ fontFamily: 'Utendo' }}>Lanjut Membaca</p>
                   </Link>
+                )}
+                      {lastReadChapter && (
+                        <div></div>
                 )}
               </div>
             </div>
